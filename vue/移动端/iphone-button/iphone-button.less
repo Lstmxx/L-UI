@@ -1,0 +1,50 @@
+.iphone-button{
+  @width: var(--width);
+  @height: var(--height);
+  @padding: var(--padding);
+  @buttonSize: calc(@height - @padding * 2); // 圆圈大小
+  .btn{
+    border-radius: calc(@height / 2);
+    width: @width;
+    height: @height;
+    background-color: #e9e9eb;
+  }
+  .circular{
+    .btn;
+    position: relative;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 100ms;
+    padding: @padding;
+    border: 0px;
+    &:checked{
+      background: #5eb662;
+      &::before{
+        opacity: 0;
+      }
+      &::after{
+        left: calc(@width - @padding - @buttonSize);
+      }
+    }
+  }
+  .circular::before{
+    .btn;
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+    position: absolute;
+    content: '';
+    transition: all 300ms cubic-bezier(.45, 1, .4, 1);
+  }
+  .circular::after{
+    left: @padding;
+    position: absolute;
+    border-radius: 100%;
+    width: @buttonSize;
+    height: @buttonSize;
+    background-color: #fff;
+    content: '';
+    transition: all 300ms cubic-bezier(.4, .4, .25, 1.35);
+  }
+}
