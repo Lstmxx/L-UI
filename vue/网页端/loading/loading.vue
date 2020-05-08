@@ -4,7 +4,7 @@
       <ul class="animate">
         <li v-for="index in 6" :key="index" :style="{ 'animation-delay': `${index * 0.1}s` }"></li>
       </ul>
-      <span>{{ context }}</span>
+      <!-- <span>{{ context }}</span> -->
     </div>
   </div>
 </template>
